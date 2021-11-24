@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import productsData from './productsList';
+import Products from "./Products.js"
 
 function App() {
+  const productsComponents = productsData.map(item =>
+    <Products key={item.id} product={item} someCallback={this.someCallback}/>
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          {productsComponents}
+      </div>
   );
 }
 
